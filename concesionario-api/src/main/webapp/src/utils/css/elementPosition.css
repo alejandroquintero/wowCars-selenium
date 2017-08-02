@@ -1,0 +1,68 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 01-ago-2017, 16:19:21
+    Author     : Asistente
+*/
+
+.breadcrumb{
+    position:absolute;
+    top:37%;
+    width:100%;
+    color: whitesmoke;
+}
+.toolbar-position{
+    position:absolute;
+    left:0px;
+    top:43%;
+    width:100%;
+    
+}
+.views-position{
+    position:absolute;
+    left:0px;
+    top:55%;
+    width:100%;
+}
+.search-bar{
+    
+   width: 95%;
+    border: 1px solid whitesmoke;
+    padding: 25px;
+    margin: 25px;
+}
+.search-bar-li{
+    padding: 20px;
+}
+.search-bar-li:hover{
+    background: whitesmoke;
+    color:black;
+   
+}
+.gallery-position{
+    position:absolute;
+    top:70%;
+    width:100%;
+    height: 100%;
+}
+
+.alert-position{
+    position:absolute;
+    top:55%;
+    left:0px;
+    width: 100%;
+    
+}
+.form-position{
+    position:absolute;
+    top:65%;
+    width: 100%;
+}
+.delete-position{
+    position:absolute;
+    top:50%;
+    width:100%;
+}

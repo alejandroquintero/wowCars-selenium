@@ -1,0 +1,28 @@
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+.tmp/
+/target/
+/concesionario-logic/target/
+/concesionario-api/target/
+
+#NetBeans
+nbactions.xml
+/concesionario-api/nb-configuration.xml
+
+#Tests
+/concesionario-logic/derby.log
+/concesionario-api/derby.log
+
+#Bower
+/concesionario-api/src/main/webapp/bower_components/

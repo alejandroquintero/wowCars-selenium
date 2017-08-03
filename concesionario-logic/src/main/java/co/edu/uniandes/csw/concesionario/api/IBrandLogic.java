@@ -24,6 +24,7 @@ SOFTWARE.
 package co.edu.uniandes.csw.concesionario.api;
 
 import co.edu.uniandes.csw.concesionario.entities.BrandEntity;
+import co.edu.uniandes.csw.concesionario.exceptions.BusinessLogicException;
 import java.util.List;
 
 public interface IBrandLogic {
@@ -31,7 +32,7 @@ public interface IBrandLogic {
     public List<BrandEntity> getBrands();
     public List<BrandEntity> getBrands(Integer page, Integer maxRecords);
     public BrandEntity getBrand(Long id);
-    public BrandEntity createBrand(BrandEntity entity); 
+    public BrandEntity createBrand(BrandEntity entity)throws BusinessLogicException; 
     public BrandEntity updateBrand(BrandEntity entity);
     public void deleteBrand(Long id);
 }

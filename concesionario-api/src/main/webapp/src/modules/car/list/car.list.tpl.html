@@ -25,6 +25,7 @@ SOFTWARE.
     <div ncy-breadcrumb></div>
     <toolbar class="toolbar-position" ng-if="isAuthenticated()" name="model.name" display-name="model.displayName" actions='actions'></toolbar>
 </header>
+
 <gallery class="views-position" name="model.name" fields="model.fields" records="records" actions="recordActions" buttons="buttons"></gallery>
 <pagination ng-if="ctrl.itemsPerPage < ctrl.totalItems"
             total-items="ctrl.totalItems"

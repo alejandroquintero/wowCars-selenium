@@ -62,7 +62,11 @@ SOFTWARE.
                     case 503:
                         $scope.showError(response.data);
                         return false; 
-                        break;  
+                        break; 
+                    case 405:
+                        $scope.showError(response.data);
+                        return false; 
+                        break;
                     case 412:
                         $scope.showError(response.data);
                         return false; 

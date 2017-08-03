@@ -28,6 +28,7 @@ import co.edu.uniandes.csw.concesionario.api.IBrandLogic;
 import co.edu.uniandes.csw.concesionario.entities.BrandEntity;
 import co.edu.uniandes.csw.concesionario.persistence.BrandPersistence;
 import co.edu.uniandes.csw.concesionario.entities.CarEntity;
+import co.edu.uniandes.csw.concesionario.exceptions.BusinessLogicException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -149,7 +150,7 @@ public class BrandLogicTest {
      * @generated
      */
     @Test
-    public void createBrandTest() {
+    public void createBrandTest() throws BusinessLogicException {
         BrandEntity newEntity = factory.manufacturePojo(BrandEntity.class);
         BrandEntity result = brandLogic.createBrand(newEntity);
         Assert.assertNotNull(result);

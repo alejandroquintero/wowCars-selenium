@@ -114,7 +114,7 @@ public class BrandResource {
     @POST
     @StatusCreated
     public BrandDetailDTO createBrand(BrandDetailDTO dto)throws BusinessLogicException  {
-           isDuplicated(dto);
+         
         return new BrandDetailDTO(brandLogic.createBrand(dto.toEntity()));
     }
 
@@ -158,11 +158,5 @@ public class BrandResource {
         existsBrand(brandsId);
         return CarResource.class;
     }
-    
-
-   public void isDuplicated(BrandDetailDTO dto) throws BusinessLogicException{
-   for(BrandEntity ae:brandLogic.getBrands())
-       if(ae.getName().equals(dto.getName()))
-           throw new BusinessLogicException("el nombre de Brand ya existe");      
-   }
+   
 }

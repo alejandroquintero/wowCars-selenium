@@ -1,1 +1,1 @@
-newman run C:\Users\Asistente\Downloads\Concesionario-HEAD\Concesionario\concesionario-api\collections\postman_collectionBrand.json -e C:\Users\Asistente\Downloads\Concesionario-HEAD\Concesionario\concesionario-api\collections\postman_env.json --disable-unicode
+newman run C:\Users\Asistente\Documents\NetBeansProjects\wowCars\concesionario-api\collections\postman_collectionBrand.json -e C:\Users\Asistente\Documents\NetBeansProjects\wowCars\concesionario-api\collections\postman_env.json --disable-unicode

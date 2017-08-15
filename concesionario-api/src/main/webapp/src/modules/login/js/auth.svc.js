@@ -99,6 +99,10 @@
                     $state.go(values.forbiddenState);
                 },
                 userAuthenticated: function(){
+                    $http.get(values.apiUrl + values.meURL).then(function(response){
+                       var permissions = JSON.stringify(response.data.permissions);
+                        $cookies.put("permissions",permissions);
+                   });
                     return $http.get(values.apiUrl + values.meURL);
                 }
             };

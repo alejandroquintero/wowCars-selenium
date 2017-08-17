@@ -45,6 +45,7 @@ and open the template in the editor.
 .gallery-position{
     position:absolute;
     top:70%;
+    left: 1%;
     width:100%;
     height: 100%;
 }

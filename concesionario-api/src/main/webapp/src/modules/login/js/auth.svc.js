@@ -21,7 +21,7 @@
         };
 
         //Default Roles
-        var roles = {};
+        var roles = {admin:{}};
         
         this.setValues = function (newValues) {
             values = ng.extend(values, newValues);

@@ -51,7 +51,7 @@
                         <div class="form-group" ng-class="{'has-success': loginform.lastname.$valid && loginform.lastname.$dirty, 'has-error': loginform.lastname.$invalid && loginform.$submitted }">
                             <input id="last-name-input" class="form-control" required ng-model="user.surName" placeholder="Last Name" name="lastname" type="text" >
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="color:#c1c1c1">
                             <label> Please select your roles: </label><br>
                             <!--<select class="form-control" ng-options="rol as value.label for value in roles" name="SelectRole" ng-model="user.role" required></select>-->
                             <div class="row">

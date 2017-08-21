@@ -26,8 +26,8 @@ SOFTWARE.
     <!--<toolbar class="toolbar-position" ng-if="isAuthenticated()" name="model.name" display-name="model.displayName" actions='actions'></toolbar>-->
 </header>
 <div class="toolbar-position">
-    <ul class="search-bar">
-        <li class="search-bar-li" ng-repeat="item in records" ng-click="getCars(item)">{{item.name}}</li>
+    <ul class="search-bar menu-brands">
+        <li class="search-bar-li list-brands" ng-repeat="item in records" ng-click="getCars(item)">{{item.name}}</li>
     </ul>
 </div>
 <gallery class="gallery-position" name="model.name" fields="model.fields" records="cars" actions="recordActions" buttons="buttons"></gallery>

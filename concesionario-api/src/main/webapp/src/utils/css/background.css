@@ -45,7 +45,7 @@ toolbar{
     height: 25%;
     background-image: url('banner.jpg');
 }
-ul {
+ .menu-brands {
     list-style-type: none;
     margin: 0;
     padding-left: 10px;
@@ -53,11 +53,12 @@ ul {
     
 }
 
-li {
+.list-brands {
     
     float: left;
     color: whitesmoke;
 }
+
 form{
     color:whitesmoke;
 }

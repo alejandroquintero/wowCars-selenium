@@ -70,8 +70,7 @@ public class BrandTest {
 
     private WebTarget target;
     private final String apiPath = Utils.apiPath;
-    private final String username = Utils.username;
-    private final String password = Utils.password;
+    
     PodamFactory factory = new PodamFactoryImpl();
 
     private final int Ok = Status.OK.getStatusCode();

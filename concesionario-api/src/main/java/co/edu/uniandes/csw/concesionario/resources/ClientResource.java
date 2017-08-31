@@ -44,6 +44,7 @@ import co.edu.uniandes.csw.concesionario.entities.ClientEntity;
 import java.util.ArrayList;
 import javax.ws.rs.WebApplicationException;
 import co.edu.uniandes.csw.concesionario.exceptions.BusinessLogicException;
+import javax.enterprise.context.RequestScoped;
 
 /**
  * URI: clients/
@@ -52,6 +53,7 @@ import co.edu.uniandes.csw.concesionario.exceptions.BusinessLogicException;
 @Path("/clients")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@RequestScoped
 public class ClientResource {
 
     @Inject private IClientLogic clientLogic;

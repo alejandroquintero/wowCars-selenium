@@ -1,4 +1,5 @@
 # Tabla de contenidos
+- WowTeam (#WowTeam)
 -  [Introducción](#introducción)
 -  [API](#api-de-la-aplicación-concesionario)
   - [Recurso Brand](#recurso-brand)
@@ -24,6 +25,21 @@
     - [POST /clients](#POST-/clients)
     - [PUT /clients/{id}](#PUT-/clients/{id})
     - [DELETE /clients/{id}](#DELETE-/clients/{id})
+
+# WowTeam
+## WowTeam
+Integrantes:
+* Catherine Lizethe Santana (cl.santana@uniandes.edu.co)
+* Fredy Gonzalo Captuayo Novoa (fg.captuayo@uniandes.edu.co)
+* Julian Esteban Osorio Lopez (je.osoriol@uniandes.edu.co)
+* Oscar Daniel Garcia Villamil (od.garcia@uniandes.edu.co)
+* Armando Rey Ramos (a.reyr@uniandes.edu.co)
+
+Reglas de Funcionamiento:
+* Puntualidad y asistencia a las reuniones.
+* Entregar en los tiempos establecidos.
+* Atender y participar en las comunicaciones del equipo.
+* Informar a la brevedad los inconvenientes o novedades que se presenten a cada integrante.
 
 # API Rest
 ## Introducción

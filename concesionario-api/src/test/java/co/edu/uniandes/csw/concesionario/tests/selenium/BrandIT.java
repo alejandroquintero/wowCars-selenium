@@ -25,12 +25,6 @@ package co.edu.uniandes.csw.concesionario.tests.selenium;
 
 import co.edu.uniandes.csw.concesionario.dtos.minimum.BrandDTO;
 import co.edu.uniandes.csw.concesionario.resources.BrandResource;
-import co.edu.uniandes.csw.concesionario.tests.selenium.pages.brand.BrandCreatePage;
-import co.edu.uniandes.csw.concesionario.tests.selenium.pages.brand.BrandListPage;
-import co.edu.uniandes.csw.concesionario.tests.selenium.pages.LoginPage;
-import co.edu.uniandes.csw.concesionario.tests.selenium.pages.brand.BrandDeletePage;
-import co.edu.uniandes.csw.concesionario.tests.selenium.pages.brand.BrandDetailPage;
-import co.edu.uniandes.csw.concesionario.tests.selenium.pages.brand.BrandEditPage;
 import co.edu.uniandes.csw.auth.conexions.AuthenticationApi;
 import co.edu.uniandes.csw.concesionario.resources.CarResource;
 import com.google.common.base.Function;
@@ -114,9 +108,9 @@ static {
             prop.load(input);
             
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getAnonymousLogger().info("no se encontro archivo");
         } catch (IOException ex) {
-            Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getAnonymousLogger().info("no se encontro archivo");
         }
            
     }

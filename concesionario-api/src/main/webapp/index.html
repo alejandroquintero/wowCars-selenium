@@ -124,9 +124,9 @@ SOFTWARE.
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse" id="main-bar">
                             <ul class="nav navbar-nav">
-                                <li if-permission name='brands'><a ui-sref="brandList({page: 1, limit: 15})">Brand</a></li>
-                                <li if-permission name='categorys'><a ui-sref="categoryList({page: 1, limit: 15})">Category</a></li>
-                                <li if-permission name='clients'><a ui-sref="clientList({page: 1, limit: 15})">Client</a></li>
+                                <li id="brands" if-permission name='brands'><a ui-sref="brandList({page: 1, limit: 15})">Brand</a></li>
+                                <li id="categorys" if-permission name='categorys'><a ui-sref="categoryList({page: 1, limit: 15})">Category</a></li>
+                                <li id="clients" if-permission name='clients'><a ui-sref="clientList({page: 1, limit: 15})">Client</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <login-button></login-button>

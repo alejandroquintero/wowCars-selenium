@@ -33,7 +33,10 @@ import co.edu.uniandes.csw.concesionario.tests.selenium.pages.brand.BrandDetailP
 import co.edu.uniandes.csw.concesionario.tests.selenium.pages.brand.BrandEditPage;
 import co.edu.uniandes.csw.auth.conexions.AuthenticationApi;
 import co.edu.uniandes.csw.concesionario.resources.CarResource;
+import com.google.common.base.Function;
+import com.google.common.base.Predicate;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.thoughtworks.selenium.Wait;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,10 +44,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Collection;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import static java.util.concurrent.TimeUnit.SECONDS;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static org.glassfish.pfl.basic.tools.argparser.ElementParser.factory;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.drone.api.annotation.Drone;
 import org.jboss.arquillian.graphene.page.InitialPage;
@@ -73,7 +81,12 @@ import uk.co.jemos.podam.api.PodamFactoryImpl;
 import static org.hamcrest.core.Is.is;
 import org.jboss.arquillian.container.test.api.RunAsClient;
 import static org.jboss.arquillian.graphene.Graphene.guardAjax;
+import static org.jboss.arquillian.graphene.Graphene.waitGui;
 import static org.jboss.arquillian.graphene.Graphene.waitModel;
+import org.jboss.arquillian.graphene.wait.FluentBuilder;
+import org.jboss.arquillian.graphene.wait.FluentWait;
+import org.jboss.arquillian.graphene.wait.WebDriverWait;
+import org.junit.After;
 import static org.junit.Assert.assertThat;
 
 @RunWith(Arquillian.class)
@@ -85,6 +98,9 @@ public class BrandIT {
 
  @Drone
   private WebDriver driver;
+ 
+ private static PodamFactory factory = new PodamFactoryImpl();
+
  
  
  private static  Properties prop;
@@ -105,9 +121,6 @@ static {
            
     }
  
- 
-  
-
      @Deployment(testable = true)
     public static WebArchive createDeployment() {
         return ShrinkWrap.create(WebArchive.class)
@@ -116,7 +129,7 @@ static {
                         .importRuntimeDependencies().resolve()
                         .withTransitivity().asFile())
                 // Se agregan los compilados de los paquetes de servicios
-                .addPackage(CarResource.class.getPackage())
+                .addPackage(BrandResource.class.getPackage())
                  // archivo de propiedades para autenticacion de auth0
                 .addPackage("co.edu.uniandes.csw.auth.properties")
                 // El archivo que contiene la configuracion a la base de datos.
@@ -128,40 +141,109 @@ static {
                 .merge(ShrinkWrap.create(GenericArchive.class).as(ExplodedImporter.class)
                         .importDirectory("src/main/webapp").as(GenericArchive.class), "/");
     }
-
- 
-
-
-    @Test
-    @InSequence(0)
-    @RunAsClient
-    public void login() throws IOException, UnirestException, JSONException, InterruptedException, ExecutionException {
-      
-      
-          try {
+@Before
+public void setup(){
+try {
              driver = new RemoteWebDriver(
-                     new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome()
+                     new URL("http://localhost:4445/wd/hub"), DesiredCapabilities.chrome()
              );
          } catch (MalformedURLException ex) {
              Logger.getLogger(BrandIT.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         
+         }  
+    
+}
+@After
+public void unload(){
+
+driver.quit();
+}
+
+public  void login() throws InterruptedException{
+    
         driver.manage().window().maximize(); 
-        driver.get(deploymentURL.toExternalForm()+"#/login"); 
-        
+        driver.get(deploymentURL.toExternalForm()+"#/login");   
         driver.manage().deleteAllCookies();
         WebElement usernameInput = driver.findElement(By.id("username-input"));
         WebElement passwordInput = driver.findElement(By.id("password-input"));
         WebElement registerBtn = driver.findElement(By.id("log-in-btn"));
         waitModel().until().element(usernameInput).is().visible();
-        
         usernameInput.clear();
         passwordInput.clear();
-       usernameInput.sendKeys(prop.getProperty("username").trim());
+        usernameInput.sendKeys(prop.getProperty("username").trim());
         passwordInput.sendKeys(prop.getProperty("password").trim()); 
-        registerBtn.submit();
-        Assert.assertEquals("h", "h");
-        driver.quit();
+        registerBtn.click();
+            
+}
+
+
+    @Test
+    @InSequence(0)
+    @RunAsClient
+    public void createBrand() throws InterruptedException  {
+      login();
+      
+       Logger.getAnonymousLogger().info("waiting");
+       driver.manage().timeouts().implicitlyWait(5, SECONDS);
+       Integer expected = 0;
+       Integer countBrands = driver.findElements(By.cssSelector("tbody > tr")).size();
+       Assert.assertEquals(expected,countBrands);
+       WebElement createBtn = driver.findElement(By.id("create-brand"));
+       waitModel().until().element(createBtn).is().visible();
+       createBtn.click();
+       BrandDTO expected_brand = factory.manufacturePojo(BrandDTO.class);
+       WebElement nameInput = driver.findElement(By.id("name"));
+       WebElement saveBtn = driver.findElement(By.id("save-brand"));
+       waitGui().until().element(nameInput).is().visible();
+       nameInput.clear();
+       nameInput.sendKeys(expected_brand.getName());
+       saveBtn.click();
+       WebElement  nameDetail = driver.findElement(By.id("name-detail")); 
+       waitGui().until().element(nameDetail).is().visible();     
+       BrandDTO actual_brand = new BrandDTO();
+       actual_brand.setName(nameDetail.getText());
+       Assert.assertEquals(expected_brand.getName(), actual_brand.getName());
     }
-    
+ 
+    @Test
+   @InSequence(1)
+    @RunAsClient
+    public void editBrand() throws InterruptedException {
+        login();
+       Logger.getAnonymousLogger().info("waiting");
+       driver.manage().timeouts().implicitlyWait(5, SECONDS);
+        BrandDTO expected_brand = factory.manufacturePojo(BrandDTO.class);
+        WebElement editBtn = driver.findElement(By.id("0-edit-btn"));
+        waitGui().until().element(editBtn).is().visible();
+        editBtn.click();
+        WebElement nameEdit = driver.findElement(By.id("name-edit"));
+        waitGui().until().element(nameEdit).is().visible();
+        WebElement saveBtn = driver.findElement(By.id("save-brand"));
+        nameEdit.clear();
+        nameEdit.sendKeys(expected_brand.getName());
+        saveBtn.click();
+         WebElement  nameDetail = driver.findElement(By.id("name-detail")); 
+       waitGui().until().element(nameDetail).is().visible(); 
+        BrandDTO actual_brand = new BrandDTO();
+       actual_brand.setName(nameDetail.getText());
+       Assert.assertEquals(expected_brand.getName(), actual_brand.getName());
+    }
+
+    @Test
+    @InSequence(2)
+    @RunAsClient
+    public void deleteBrand() throws InterruptedException {
+        login();
+       Logger.getAnonymousLogger().info("waiting");
+       driver.manage().timeouts().implicitlyWait(5, SECONDS);
+       WebElement deleteBtn = driver.findElement(By.id("0-delete-btn"));
+        waitGui().until().element(deleteBtn).is().visible();
+        deleteBtn.click();
+        WebElement confirmDel = driver.findElement(By.id("confirm-delete"));
+       waitGui().until().element(confirmDel).is().visible();
+        confirmDel.click();
+        Integer expected = 0;
+        Integer countBrands = driver.findElements(By.cssSelector("tbody > tr")).size();
+        Assert.assertEquals(expected, countBrands);
+    }
+
 }

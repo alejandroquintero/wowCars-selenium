@@ -35,6 +35,7 @@ public class BrandDTO  implements Serializable{
 
     private Long id;
     private String name;
+    private String slogan; 
 
 
     /**
@@ -53,6 +54,7 @@ public class BrandDTO  implements Serializable{
 	   if (entity!=null){
         this.id=entity.getId();
         this.name=entity.getName();
+        this.slogan = entity.getSlogan();
        }
     }
 
@@ -109,5 +111,14 @@ public class BrandDTO  implements Serializable{
         this.name = name;
     }
 
+    public String getSlogan() {
+        return slogan;
+    }
+
+    public void setSlogan(String slogan) {
+        this.slogan = slogan;
+    }
+
+    
 
 }

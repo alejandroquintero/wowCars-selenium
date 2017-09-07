@@ -33,6 +33,10 @@
                 displayName: 'Marca',
                 type: 'String',
                 required: true
+            },slogan: {
+                displayName: 'slogan',
+                type: 'String',
+                required: true
             }}
     });
 

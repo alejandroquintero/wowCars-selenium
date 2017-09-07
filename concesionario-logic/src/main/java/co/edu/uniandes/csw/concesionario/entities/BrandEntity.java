@@ -42,6 +42,8 @@ public class BrandEntity extends BaseEntity implements Serializable {
     @PodamExclude
     @OneToMany(mappedBy = "brand", cascade = CascadeType.REMOVE)
     private List<CarEntity> car = new ArrayList<>();
+    
+    private String slogan; 
 
     /**
      * Obtiene la colección de car.
@@ -62,4 +64,14 @@ public class BrandEntity extends BaseEntity implements Serializable {
     public void setCar(List<CarEntity> car) {
         this.car = car;
     }
+
+    public String getSlogan() {
+        return slogan;
+    }
+
+    public void setSlogan(String slogan) {
+        this.slogan = slogan;
+    }
+    
+    
 }

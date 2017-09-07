@@ -35,6 +35,11 @@ SOFTWARE.
                 type:  'String',
                 required: true 
             },
+            image: {
+                displayName: 'Image',
+                type: 'Imagen',
+                required: true
+            },
             parentCategory: {
                 displayName:  'Parent Category',
                 type: 'Reference',

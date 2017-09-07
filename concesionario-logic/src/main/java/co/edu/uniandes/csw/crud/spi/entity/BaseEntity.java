@@ -18,6 +18,8 @@ public abstract class BaseEntity implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String slogan;
+    private String originCountry;
 
     public Long getId() {
         return id;
@@ -35,6 +37,22 @@ public abstract class BaseEntity implements Serializable{
         this.name = name;
     }
 
+    public String getSlogan() {
+        return slogan;
+    }
+
+    public void setSlogan(String slogan) {
+        this.slogan = slogan;
+    }
+    
+    public String getOriginCountry() {
+        return originCountry;
+    }
+
+    public void setOriginCountry(String originCountry) {
+        this.originCountry = originCountry;
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (this.getId() != null && ((BaseEntity) obj).getId() != null) {

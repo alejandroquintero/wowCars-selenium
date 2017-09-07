@@ -37,6 +37,10 @@
                 displayName: 'slogan',
                 type: 'String',
                 required: true
+            },originCountry: {
+                displayName: 'País de Origen',
+                type: 'String',
+                required: true
             }}
     });
 

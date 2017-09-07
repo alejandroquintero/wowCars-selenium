@@ -36,7 +36,7 @@ public class BrandDTO  implements Serializable{
     private Long id;
     private String name;
     private String slogan; 
-
+    private String originCountry;
 
     /**
      * @generated
@@ -55,6 +55,7 @@ public class BrandDTO  implements Serializable{
         this.id=entity.getId();
         this.name=entity.getName();
         this.slogan = entity.getSlogan();
+        this.originCountry = entity.getOriginCountry();
        }
     }
 
@@ -68,6 +69,9 @@ public class BrandDTO  implements Serializable{
         BrandEntity entity = new BrandEntity();
         entity.setId(this.getId());
         entity.setName(this.getName());
+        entity.setSlogan(this.getSlogan());
+        entity.setOriginCountry(this.getOriginCountry());
+        
     return entity;
     }
 
@@ -111,14 +115,44 @@ public class BrandDTO  implements Serializable{
         this.name = name;
     }
 
+    /**
+     * Obtiene el atributo slogan.
+     *
+     * @return atributo slogan.
+     * @generated
+     */
     public String getSlogan() {
         return slogan;
     }
-
+    
+    /**
+     * Establece el valor del atributo slogan.
+     *
+     * @param slogan nuevo valor del atributo
+     * @generated
+     */
     public void setSlogan(String slogan) {
         this.slogan = slogan;
     }
-
     
+    /**
+     * Obtiene el atributo originCountry.
+     *
+     * @return atributo originCountry.
+     * @generated
+     */
+    public String getOriginCountry() {
+        return originCountry;
+    }
+    
+    /**
+     * Establece el valor del atributo originCountry.
+     *
+     * @param originCountry nuevo valor del atributo
+     * @generated
+     */
+    public void setOriginCountry(String originCountry) {
+        this.originCountry = originCountry;
+    }
 
 }

@@ -1,5 +1,5 @@
 # Tabla de contenidos
-- WowTeam (#WowTeam)
+- WowTeam (#wowTeam)
 -  [Introducción](#introducción)
 -  [API](#api-de-la-aplicación-concesionario)
   - [Recurso Brand](#recurso-brand)

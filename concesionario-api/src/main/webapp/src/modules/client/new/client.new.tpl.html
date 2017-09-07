@@ -55,5 +55,11 @@ SOFTWARE.
             <input id="phone" name="phone" class="form-control" type="number" ng-model="currentRecord.phone" ng-required="true" />
         </div>
     </div>
+    <div class="form-group col-md-12" ng-class="{'has-success': clientForm.address.$valid && clientForm.address.$dirty, 'has-error': clientForm.address.$invalid && clientForm.address.$dirty}" >
+        <label for="address" class="col-md-2 control-label">Address</label>
+        <div class="col-md-10">
+            <input id="address" name="address" class="form-control" type="text" ng-model="currentRecord.address" ng-required="true" />
+        </div>
+    </div>
     </fieldset>
 </form>

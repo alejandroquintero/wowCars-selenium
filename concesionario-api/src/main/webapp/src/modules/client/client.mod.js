@@ -46,6 +46,12 @@ SOFTWARE.
                 displayName: 'Phone',
                 type:  'Long',
                 required: true 
+            },
+            address: {
+                
+                displayName: 'Address',
+                type:  'String',
+                required: true 
             }        }
     });
 

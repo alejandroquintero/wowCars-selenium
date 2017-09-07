@@ -37,6 +37,8 @@ public class ClientEntity extends BaseEntity implements Serializable {
     private String email;
 
     private Long phone;
+    
+    private String address; // atributo nuevo
 
     /**
      * Obtiene el atributo email.
@@ -77,4 +79,23 @@ public class ClientEntity extends BaseEntity implements Serializable {
     public void setPhone(Long phone){
         this.phone = phone;
     }
+    
+    /**
+     * Obtiene el atributo address.
+     *
+     * @return atributo address.
+     * @generated
+     */
+    public String getAddress(){
+       return address; 
+   }
+   /**
+     * Establece el valor del atributo address.
+     *
+     * @param address nuevo valor del atributo
+     * @generated
+     */
+   public void setAddress(String address){
+       this.address = address;
+   }
 }

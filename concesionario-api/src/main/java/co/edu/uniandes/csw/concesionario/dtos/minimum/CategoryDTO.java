@@ -20,7 +20,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+ */
 package co.edu.uniandes.csw.concesionario.dtos.minimum;
 
 import co.edu.uniandes.csw.concesionario.entities.CategoryEntity;
@@ -31,11 +31,11 @@ import java.io.Serializable;
  * @generated
  */
 @XmlRootElement
-public class CategoryDTO  implements Serializable{
+public class CategoryDTO implements Serializable {
 
     private Long id;
     private String name;
-
+    private String image;
 
     /**
      * @generated
@@ -46,14 +46,16 @@ public class CategoryDTO  implements Serializable{
     /**
      * Crea un objeto CategoryDTO a partir de un objeto CategoryEntity.
      *
-     * @param entity Entidad CategoryEntity desde la cual se va a crear el nuevo objeto.
+     * @param entity Entidad CategoryEntity desde la cual se va a crear el nuevo
+     * objeto.
      * @generated
      */
     public CategoryDTO(CategoryEntity entity) {
-	   if (entity!=null){
-        this.id=entity.getId();
-        this.name=entity.getName();
-       }
+        if (entity != null) {
+            this.id = entity.getId();
+            this.name = entity.getName();
+            this.image = entity.getImage();
+        }
     }
 
     /**
@@ -66,7 +68,8 @@ public class CategoryDTO  implements Serializable{
         CategoryEntity entity = new CategoryEntity();
         entity.setId(this.getId());
         entity.setName(this.getName());
-    return entity;
+        entity.setImage(this.getImage());
+        return entity;
     }
 
     /**
@@ -109,5 +112,22 @@ public class CategoryDTO  implements Serializable{
         this.name = name;
     }
 
+    /**
+     * Obtiene el valor del atributo image
+     *
+     * @return
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * Establece el valor del atributo image
+     *
+     * @param image
+     */
+    public void setImage(String image) {
+        this.image = image;
+    }
 
 }

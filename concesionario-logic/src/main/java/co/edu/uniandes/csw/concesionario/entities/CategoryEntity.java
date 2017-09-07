@@ -20,7 +20,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/
+ */
 package co.edu.uniandes.csw.concesionario.entities;
 
 import java.io.Serializable;
@@ -30,15 +30,16 @@ import uk.co.jemos.podam.common.PodamExclude;
 import javax.persistence.OneToOne;
 import javax.persistence.FetchType;
 
-
 /**
  * @generated
  */
 @Entity
 public class CategoryEntity extends BaseEntity implements Serializable {
 
+    private String image;
+
     @PodamExclude
-    @OneToOne(fetch=FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private CategoryEntity parentCategory;
 
     /**
@@ -59,5 +60,25 @@ public class CategoryEntity extends BaseEntity implements Serializable {
      */
     public void setParentCategory(CategoryEntity parentcategory) {
         this.parentCategory = parentcategory;
+    }
+
+    /**
+     * Obtiene el atributo image.
+     *
+     * @return atributo image.
+     * @generated
+     */
+    public String getImage() {
+        return image;
+    }
+
+    /**
+     * Establece el valor del atributo image.
+     *
+     * @param image nuevo valor del atributo
+     * @generated
+     */
+    public void setImage(String image) {
+        this.image = image;
     }
 }

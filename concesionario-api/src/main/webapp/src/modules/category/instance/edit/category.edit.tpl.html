@@ -35,6 +35,12 @@ SOFTWARE.
             <input id="name" name="name" class="form-control" type="text" ng-model="currentRecord.name" ng-required="true" />
         </div>
     </div>
+    <div class="form-group col-md-12" ng-class="{'has-success': categoryForm.image.$valid && categoryForm.image.$dirty, 'has-error': categoryForm.image.$invalid && categoryForm.image.$dirty}" >
+        <label for="image" class="col-md-2 control-label">Image</label>
+        <div class="col-md-10">
+            <input id="image" name="image" class="form-control" type="text" ng-model="currentRecord.image" ng-required="true" />
+        </div>
+    </div>
     <div class="form-group col-md-12" ng-class="{'has-success': categoryForm.parentCategory.$valid && categoryForm.parentCategory.$dirty, 'has-error': categoryForm.parentCategory.$invalid && categoryForm.parentCategory.$dirty}" >
         <label for="parentCategory" class="col-md-2 control-label">ParentCategory</label>
         <div class="col-md-10">

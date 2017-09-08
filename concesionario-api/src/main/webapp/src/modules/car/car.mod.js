@@ -54,6 +54,11 @@
                 type: 'Long',
                 required: true
             },
+            model: {
+                displayName: 'Model',
+                type: 'Integer',
+                required: true
+            },
             category: {
                 displayName: 'Category',
                 type: 'Reference',

@@ -44,6 +44,8 @@ public class CarEntity extends BaseEntity implements Serializable {
     private Long revisions;
 
     private Long warranty;
+    
+    private Integer model;
 
     @PodamExclude
     @ManyToOne
@@ -172,4 +174,14 @@ public class CarEntity extends BaseEntity implements Serializable {
     public void setBrand(BrandEntity brand) {
         this.brand = brand;
     }
+
+    public Integer getModel() {
+        return model;
+    }
+
+    public void setModel(Integer model) {
+        this.model = model;
+    }
+    
+    
 }

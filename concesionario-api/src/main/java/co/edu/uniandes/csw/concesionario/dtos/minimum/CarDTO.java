@@ -39,6 +39,7 @@ public class CarDTO  implements Serializable{
     private Long price;
     private Long revisions;
     private Long warranty;
+    private Integer model;
 
 
     /**
@@ -61,6 +62,7 @@ public class CarDTO  implements Serializable{
         this.price=entity.getPrice();
         this.revisions=entity.getRevisions();
         this.warranty=entity.getWarranty();
+        this.model=entity.getModel();
        }
     }
 
@@ -78,6 +80,7 @@ public class CarDTO  implements Serializable{
         entity.setPrice(this.getPrice());
         entity.setRevisions(this.getRevisions());
         entity.setWarranty(this.getWarranty());
+        entity.setModel(this.getModel());
     return entity;
     }
 
@@ -199,6 +202,14 @@ public class CarDTO  implements Serializable{
      */
     public void setWarranty(Long warranty) {
         this.warranty = warranty;
+    }
+
+    public Integer getModel() {
+        return model;
+    }
+
+    public void setModel(Integer model) {
+        this.model = model;
     }
 
 
